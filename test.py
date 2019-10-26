@@ -42,12 +42,10 @@ def draw_box(frame, x1, y1, x2, y2, objNum):
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
-    ap.add_argument("-video", "--video", required=True, help="path to input video file")
     ap.add_argument("-width", "--width", help="width of the window", default=800)
     ap.add_argument("-height", "--height", help="height of the window", default=600)
     args = vars(ap.parse_args())
 
-    VIDEO_PATH = args['video']
     WIN_NAME = 'window'
     WIN_WIDTH = int(args['width'])
     WIN_HEIGHT = int(args['height'])
@@ -68,7 +66,7 @@ if __name__ == '__main__':
     vs = cv2.VideoCapture(VIDEO_PATH)
 
     while True:
-        if not pause_frames:
+        if not frames:
             skip_frames -= 1
             (ret, frame) = vs.read()
 
